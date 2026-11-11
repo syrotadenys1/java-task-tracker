@@ -49,4 +49,10 @@ public class TaskController {
         taskService.deleteTask(id);
         return ResponseEntity.noContent().build();
     }
+
+    // 6. GET http://localhost:8080/api/tasks/search?keyword=Java
+    @GetMapping("/search")
+    public List<Task> searchTasks(@RequestParam String keyword) {
+        return taskService.getTaskByTitleContainingIgnoreCase(keyword);
+    }
 }

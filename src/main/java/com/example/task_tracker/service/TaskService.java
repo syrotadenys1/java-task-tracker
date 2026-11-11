@@ -42,4 +42,8 @@ public class TaskService {
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }
+
+    public List<Task> getTaskByTitleContainingIgnoreCase(String keyword){
+        return taskRepository.findByTitleContainingIgnoreCase(keyword);
+    }
 }
